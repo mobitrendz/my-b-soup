@@ -1,6 +1,12 @@
 ## My B Soup - A Beautiful Soup Learning Project
 A step by step guide by Sreeraj Sreenivasan - 9 April 2026
 
+- Reference
+
+```bash
+https://geographyfieldwork.com/WorldCapitalCities.htm
+```
+
 ### Create and run a new FastAPI project
 
 - Create a python project using UV (Assuming UV is already installed)
