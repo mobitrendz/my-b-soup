@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 
 def main():
+    print("Hello from my-b-soup!")
 
     postcode = input("Enter Postcode: ")
 
@@ -32,4 +33,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
