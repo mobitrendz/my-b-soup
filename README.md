@@ -86,7 +86,7 @@ if __name__ == "__main__":
     main()
 ```
 
-- Run the code
+- Run the code and input Australian Postcode 
 
 ```bash
 python main.py
