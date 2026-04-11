@@ -1,6 +1,6 @@
-## 🌍 World Countries Web Scraper
+## 🌍 BeautifulSoup Web Scraper Example
 
-A lightweight Python utility designed to scrape global country data from a live educational landing page. This script identifies a specific data table, extracts its contents, and exports it into a structured CSV file.
+A lightweight Python utility designed to scrape global country data from a sample html page. This script identifies a specific data table, extracts its contents, and exports it into a structured CSV file.
 
 ### 🚀 Features
 
