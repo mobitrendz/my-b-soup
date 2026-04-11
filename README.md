@@ -76,7 +76,7 @@ response = requests.get(url, headers=headers)
 ```
 
 ### ✍️ Metadata
-Sreeraj Sreenivasan - April 12, 2026
+Created by **Sreeraj Sreenivasan** on April 12, 2026
 
 ### 🛡️ Disclaimer
 This script is intended for **educational purposes**. Always check a website's robots.txt file and Terms of Service before scraping data in a production environment.
