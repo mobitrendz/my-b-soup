@@ -1,4 +1,4 @@
-## My B Soup - A Beautiful Soup Learning Project
+## A Beautiful Soup Learning Project
 A step by step guide by Sreeraj Sreenivasan - 9 April 2026
 
 - Reference
