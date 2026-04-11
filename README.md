@@ -1,4 +1,4 @@
-## 🌍 BeautifulSoup Web Scraper: A Beginner’s Guide to Scraping Web Data to CSV
+## 🌍 BeautifulSoup Web Scraper: Scraping Web Data to CSV - A Beginner’s Guide
 
 A lightweight Python utility designed to scrape global country data from a sample html page. This script identifies a specific data table, extracts its contents, and exports it into a structured CSV file.
 
