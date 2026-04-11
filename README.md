@@ -58,5 +58,9 @@ headers = {'User-Agent': 'Mozilla/5.0'}
 response = requests.get(url, headers=headers)
 ```
 
+### ✍️ Metadata
+**By:** Sreeraj Sreenivasan
+**Date:** April 12, 2026
+
 ### 🛡️ Disclaimer
 This script is intended for **educational purposes**. Always check a website's robots.txt file and Terms of Service before scraping data in a production environment.
