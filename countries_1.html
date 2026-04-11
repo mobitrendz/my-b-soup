@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Scraping Practice: World Countries</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; color: #333; padding: 40px; }
+        .container { max-width: 1000px; margin: auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; text-align: center; }
+        p.description { line-height: 1.6; background: #e8f4f8; padding: 15px; border-left: 5px solid #3498db; margin-bottom: 30px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th { background-color: #3498db; color: white; cursor: pointer; padding: 12px; text-align: left; position: relative; }
+        th:hover { background-color: #2980b9; }
+        th::after { content: ' \21C5'; font-size: 0.8em; opacity: 0.5; }
+        td { padding: 12px; border-bottom: 1px solid #eee; }
+        tr:hover { background-color: #f9f9f9; }
+        .num { text-align: right; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>World Countries Dataset</h1>
+    <p class="description">
+        <strong>Learning Goal:</strong> Use this page to practice your <strong>Python</strong> skills. 
+        Your mission is to use <strong>BeautifulSoup</strong> to find the <code>&lt;table&gt;</code> element, 
+        loop through the <code>&lt;tr&gt;</code> rows, and export the data to a <strong>CSV file</strong>.
+    </p>
+
+    <table id="countriesTable">
+        <thead>
+            <tr>
+                <th onclick="sortTable(0)">Country</th>
+                <th onclick="sortTable(1)">Capital</th>
+                <th onclick="sortTable(2)">Official Language</th>
+                <th onclick="sortTable(3)">Population</th>
+                <th onclick="sortTable(4)">Area (km²)</th>
+                <th onclick="sortTable(5)">Continent</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Afghanistan</td><td>Kabul</td><td>Pashto, Dari</td><td class="num">38928000</td><td class="num">652230</td><td>Asia</td></tr>
+            <tr><td>Australia</td><td>Canberra</td><td>English</td><td class="num">25687000</td><td class="num">7692024</td><td>Oceania</td></tr>
+            <tr><td>Brazil</td><td>Brasília</td><td>Portuguese</td><td class="num">212559000</td><td class="num">8515767</td><td>South America</td></tr>
+            <tr><td>Canada</td><td>Ottawa</td><td>English, French</td><td class="num">38005000</td><td class="num">9984670</td><td>North America</td></tr>
+            <tr><td>China</td><td>Beijing</td><td>Mandarin</td><td class="num">1402112000</td><td class="num">9596961</td><td>Asia</td></tr>
+            <tr><td>Denmark</td><td>Copenhagen</td><td>Danish</td><td class="num">5831000</td><td class="num">43094</td><td>Europe</td></tr>
+            <tr><td>Egypt</td><td>Cairo</td><td>Arabic</td><td class="num">102334000</td><td class="num">1002450</td><td>Africa</td></tr>
+            <tr><td>France</td><td>Paris</td><td>French</td><td class="num">67391000</td><td class="num">551695</td><td>Europe</td></tr>
+            <tr><td>India</td><td>New Delhi</td><td>Hindi, English</td><td class="num">1380004000</td><td class="num">3287263</td><td>Asia</td></tr>
+            <tr><td>Japan</td><td>Tokyo</td><td>Japanese</td><td class="num">125836000</td><td class="num">377975</td><td>Asia</td></tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+function sortTable(n) {
+    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+    table = document.getElementById("countriesTable");
+    switching = true;
+    dir = "asc"; 
+    while (switching) {
+        switching = false;
+        rows = table.rows;
+        for (i = 1; i < (rows.length - 1); i++) {
+            shouldSwitch = false;
+            x = rows[i].getElementsByTagName("TD")[n];
+            y = rows[i + 1].getElementsByTagName("TD")[n];
+            
+            let xVal = x.innerHTML.toLowerCase();
+            let yVal = y.innerHTML.toLowerCase();
+            
+            // Check if column is numeric
+            if (!isNaN(parseFloat(x.innerHTML)) && isFinite(x.innerHTML)) {
+                xVal = parseFloat(x.innerHTML);
+                yVal = parseFloat(y.innerHTML);
+            }
+
+            if (dir == "asc") {
+                if (xVal > yVal) { shouldSwitch = true; break; }
+            } else if (dir == "desc") {
+                if (xVal < yVal) { shouldSwitch = true; break; }
+            }
+        }
+        if (shouldSwitch) {
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
+            switchcount ++;      
+        } else {
+            if (switchcount == 0 && dir == "asc") {
+                dir = "desc";
+                switching = true;
+            }
+        }
+    }
+}
+</script>
+
+</body>
+</html>
