@@ -27,32 +27,32 @@ Ensure you have Python 3.x and `uv` installed. This project uses `uv` for ultra-
 
 ### 🖥️ Usage
 
-- Clone the repository and navigate to the root folder in your terminal:
+- **Clone repository** and navigate to the root folder in your terminal:
 
 ```bash
 git clone https://github.com/mobitrendz/beautiful-soup.git
 cd beautiful-soup
 ```
 
-- Initialize the Virtual Environment and download dependencies via terminal by running:
+- **Initialize Virtual Environment** and download dependencies via terminal by running:
 
 ```bash
 uv sync
 ```
 
-- Activate Virtual Environment
+- **Activate Virtual Environment**
 
 ```bash
 source .venv/bin/activate
 ```
 
-- Run the script:
+- **Run the script**:
 
 ```bash
 python scraper.py
 ```
 
-Output: Saves results to sample_world_countries.csv in root folder
+**Output**: Saves results to **sample_world_countries.csv** in root folder
 
 ### 🛠️ Troubleshooting
 
