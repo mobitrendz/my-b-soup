@@ -1,51 +1,55 @@
-"""
-This script scrapes the world capital cities table from a website using BeautifulSoup and requests.
-It extracts data from an HTML table and prints the rows.
-"""
-
 import requests
 from bs4 import BeautifulSoup
+import csv
 
-def main():
-    """
-    Main function to scrape and print the capital cities table.
+def scrape_countries_to_csv():
+    # URL of the practice page
+    url = "https://mobitrendz.github.io/beautiful-soup/"
+    filename = "sample_world_countries.csv"
     
-    Fetches HTML from the specified URL, parses it, finds the sortable table,
-    extracts data from table rows, filters out empty rows, and prints the data.
-    """
-    
-    # URL of the webpage containing the capital cities table
-    url = "https://geographyfieldwork.com/WorldCapitalCities.htm"
-    
-    # Fetch the HTML content from the URL
-    html_text = requests.get(url).text
-    
-    # Parse the HTML using BeautifulSoup
-    soup = BeautifulSoup(html_text, 'html.parser')
-    
-    # 1. Find the table by class name
-    target_table = soup.find('table', class_='sortable')
+    try:
+        # 1. Fetch the webpage content
+        response = requests.get(url)
+        response.raise_for_status()  # Check for HTTP errors
+        
+        # 2. Parse the HTML using BeautifulSoup
+        soup = BeautifulSoup(response.text, 'html.parser')
+        
+        # 3. Locate the table by its ID 
+        table = soup.find('table', id='countryTable')
+        
+        if not table:
+            print("Error: Could not find the table with ID 'countryTable'.")
+            return
 
-    # Uncomment the next line to print the entire table HTML for debugging
-    # print(target_table)
-    
-    # 2. Extract data from rows
-    table_data = []
-    if target_table:
-        for row in target_table.find_all('tr'):
-            # Find all columns (data cells or headers)
-            columns = row.find_all('td')
-            # Strip text from each cell and add to list
-            row_data = [col.get_text(strip=True) for col in columns]
-            table_data.append(row_data)
+        # 4. Extract data from the table
+        scraped_data = []
+        
+        # Get Header row
+        headers = [th.get_text(strip=True) for th in table.find_all('th')]
+        scraped_data.append(headers)
+        
+        # Get Body rows
+        tbody = table.find('tbody')
+        if not tbody:
+            print("Error: Could not find <tbody> in the table.")
+            return
+        
+        rows = tbody.find_all('tr')
+        for row in rows:
+            # Extract text from each cell (td)
+            cells = [td.get_text(strip=True) for td in row.find_all('td')]
+            scraped_data.append(cells)
+            
+        # 5. Save the data to a CSV file
+        with open(filename, 'w', newline='', encoding='utf-8') as file:
+            writer = csv.writer(file)
+            writer.writerows(scraped_data)
+            
+        print(f"✅ Successfully scraped {len(scraped_data) - 1} country details and saved to {filename}")
 
-    # Remove empty rows
-    table_data = list(filter(None, table_data))  
+    except Exception as e:
+        print(f"❌ An error occurred: {e}")
 
-    # Print the extracted table data
-    for row1 in table_data:
-        print(row1)
-
-# This ensures that main() runs only when this script is executed directly, not when imported as a module
 if __name__ == "__main__":
-    main()
+    scrape_countries_to_csv()
