@@ -4,18 +4,14 @@ A lightweight Python utility designed to scrape global country data from a live 
 
 ### 🚀 Features
 
-- **Live Data Extraction**: Fetches real-time HTML from mobitrendz.github.io.
+- **Live Data Extraction**: Fetches real-time HTML from [mobitrendz.github.io](https://mobitrendz.github.io/beautiful-soup/).
 - **Error Handling**: Includes status checks to ensure the webpage is accessible before parsing.
 - **Clean Formatting**: Automatically strips whitespace and cleans HTML tags for a "ready-to-use" dataset.
 - **CSV Export**: Saves results to sample_world_countries.csv with UTF-8 encoding.
 
 ### 🛠️ Prerequisites
 
-Ensure you have Python 3.x installed. You will also need to install the following dependencies:
-
-```bash
-pip install requests beautifulsoup4
-```
+Ensure you have Python 3.x and `uv` installed. This project uses `uv` for ultra-fast dependency management.
 
 ### 📂 Project Structure
 
@@ -31,11 +27,32 @@ pip install requests beautifulsoup4
 
 ### 🖥️ Usage
 
-Simply run the script via your terminal:
+- Clone the repository and navigate to the root folder in your terminal:
+
+```bash
+git clone https://github.com/mobitrendz/beautiful-soup.git
+cd beautiful-soup
+```
+
+- Initialize the Virtual Environment and download dependencies via terminal by running:
+
+```bash
+uv sync
+```
+
+- Activate Virtual Environment
+
+```bash
+source .venv/bin/activate
+```
+
+- Run the script:
 
 ```bash
 python scraper.py
 ```
+
+Output: Saves results to sample_world_countries.csv in root folder
 
 ### 🛠️ Troubleshooting
 
