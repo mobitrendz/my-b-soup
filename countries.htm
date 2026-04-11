@@ -1,32 +1,189 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beautiful Soup Example</title>
+    <title>Countries Information</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        thead {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        th {
+            padding: 20px;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 3px solid #667eea;
+        }
+        td {
+            padding: 15px 20px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        tbody tr:hover {
+            background-color: #f5f5f5;
+            transition: background-color 0.3s ease;
+        }
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+        .continent {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+        .africa { background-color: #FFE5CC; color: #333; }
+        .asia { background-color: #E5F3FF; color: #333; }
+        .europe { background-color: #F0E5FF; color: #333; }
+        .north-america { background-color: #FFE5E5; color: #333; }
+        .south-america { background-color: #E5FFE5; color: #333; }
+        .oceania { background-color: #FFFFE5; color: #333; }
+    </style>
 </head>
 <body>
-    <h1>World Capital Cities</h1>
-    <table summary="World Capitals">
-        <tr>
-            <th>Country</th>
-            <th>Capital</th>
-        </tr>
-        <tr>
-            <td>Australia</td>
-            <td>Canberra</td>
-        </tr>
-        <tr>
-            <td>France</td>
-            <td>Paris</td>
-        </tr>
-        <tr>
-            <td>Japan</td>
-            <td>Tokyo</td>
-        </tr>
-        <tr>
-            <td>United States</td>
-            <td>Washington, D.C.</td>
-        </tr>
-    </table>
+    <div class="container">
+        <h1>📍 Countries of the World</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Country</th>
+                    <th>Capital</th>
+                    <th>Official Language(s)</th>
+                    <th>Population</th>
+                    <th>Area (km²)</th>
+                    <th>Continent</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>India</td>
+                    <td>New Delhi</td>
+                    <td>Hindi, English</td>
+                    <td>1,417,173,173</td>
+                    <td>3,287,263</td>
+                    <td><span class="continent asia">Asia</span></td>
+                </tr>
+                <tr>
+                    <td>China</td>
+                    <td>Beijing</td>
+                    <td>Mandarin Chinese</td>
+                    <td>1,425,887,337</td>
+                    <td>9,596,961</td>
+                    <td><span class="continent asia">Asia</span></td>
+                </tr>
+                <tr>
+                    <td>United States</td>
+                    <td>Washington, D.C.</td>
+                    <td>English</td>
+                    <td>338,289,857</td>
+                    <td>9,833,520</td>
+                    <td><span class="continent north-america">North America</span></td>
+                </tr>
+                <tr>
+                    <td>Brazil</td>
+                    <td>Brasília</td>
+                    <td>Portuguese</td>
+                    <td>215,313,498</td>
+                    <td>8,514,877</td>
+                    <td><span class="continent south-america">South America</span></td>
+                </tr>
+                <tr>
+                    <td>Germany</td>
+                    <td>Berlin</td>
+                    <td>German</td>
+                    <td>83,369,843</td>
+                    <td>357,022</td>
+                    <td><span class="continent europe">Europe</span></td>
+                </tr>
+                <tr>
+                    <td>France</td>
+                    <td>Paris</td>
+                    <td>French</td>
+                    <td>67,970,571</td>
+                    <td>643,801</td>
+                    <td><span class="continent europe">Europe</span></td>
+                </tr>
+                <tr>
+                    <td>Japan</td>
+                    <td>Tokyo</td>
+                    <td>Japanese</td>
+                    <td>123,294,513</td>
+                    <td>377,975</td>
+                    <td><span class="continent asia">Asia</span></td>
+                </tr>
+                <tr>
+                    <td>Egypt</td>
+                    <td>Cairo</td>
+                    <td>Arabic</td>
+                    <td>104,888,401</td>
+                    <td>1,002,000</td>
+                    <td><span class="continent africa">Africa</span></td>
+                </tr>
+                <tr>
+                    <td>Nigeria</td>
+                    <td>Abuja</td>
+                    <td>English</td>
+                    <td>223,804,632</td>
+                    <td>923,768</td>
+                    <td><span class="continent africa">Africa</span></td>
+                </tr>
+                <tr>
+                    <td>Australia</td>
+                    <td>Canberra</td>
+                    <td>English</td>
+                    <td>26,505,959</td>
+                    <td>7,692,024</td>
+                    <td><span class="continent oceania">Oceania</span></td>
+                </tr>
+                <tr>
+                    <td>Canada</td>
+                    <td>Ottawa</td>
+                    <td>English, French</td>
+                    <td>38,929,902</td>
+                    <td>9,984,670</td>
+                    <td><span class="continent north-america">North America</span></td>
+                </tr>
+                <tr>
+                    <td>United Kingdom</td>
+                    <td>London</td>
+                    <td>English</td>
+                    <td>67,736,802</td>
+                    <td>242,495</td>
+                    <td><span class="continent europe">Europe</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
