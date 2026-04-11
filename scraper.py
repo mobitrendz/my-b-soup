@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 import csv
 
 def scrape_countries_to_csv():
-    # URL of the practice page
+    # URL of the dataset page
     url = "https://mobitrendz.github.io/beautiful-soup/"
     filename = "sample_world_countries.csv"
     

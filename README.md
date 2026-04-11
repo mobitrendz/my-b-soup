@@ -11,7 +11,7 @@ A lightweight Python utility designed to scrape global country data from a sampl
 
 ### 🛠️ Prerequisites
 
-Ensure you have Python 3.x and `uv` installed. This project uses `uv` for ultra-fast dependency management.
+Ensure you have `Python 3.x` and `uv` installed. This project uses `uv` for ultra-fast dependency management.
 
 ### 📂 Project Structure
 
